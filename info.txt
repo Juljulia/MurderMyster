@@ -51,5 +51,13 @@ clue 1:
 		- type
 		- city
 
+"Description" --> 2 witnesses address and fore name
+
 clue 2:
-	- 
+	- person
+		- address_street_name
+		- Address_number
+		- fore name
+
+SELECT * FROM person WHERE address_number = 42 AND address_street_name LIKE 'Baddare%';
+
