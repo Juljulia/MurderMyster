@@ -7,7 +7,7 @@ witnesses: 2
 
 Murder descriprion:
 
-"A crime has taken place and the detective needs your help. The detective gave you the crime scene report, but your cat ate it. You vaguely remember that the crime was a murder that occurred sometime on 24th of April, 2019 and that it took place in Waterloo City. All the clues to this mystery are buried in a huge database, and you need to use SQL to navigate through this vast network of information. Your first step to solving the mystery is to retrieve the corresponding crime scene report from the police department’s database."
+"A crime has taken place and the detective needs your help. The detective gave you the crime scene report, but your cat ate it. You vaguely remember that the crime was a murder that occurred sometime on Friday 24th of April, 2019 and that it took place in Waterloo City. All the clues to this mystery are buried in a huge database, and you need to use SQL to navigate through this vast network of information. Your first step to solving the mystery is to retrieve the corresponding crime scene report from the police department’s database."
 
 
 Tables:
@@ -30,7 +30,7 @@ Tables:
 	- city
 
 - interview
-	- person-id
+	- person_id
 	- transcript
 
 - swimming_pool_member
@@ -51,13 +51,45 @@ clue 1:
 		- type
 		- city
 
-"Description" --> 2 witnesses address and fore name
+	SELECT * FROM crime_scene_report WHERE type = "Murder" AND date = 20190424 AND city = "Waterloo City";
 
 clue 2:
-	- person
-		- address_street_name
-		- Address_number
-		- fore name
+	- crime_scene_report > description
 
-SELECT * FROM person WHERE address_number = 42 AND address_street_name LIKE 'Baddare%';
+	Security footage shows that there were 2 witnesses. 
+	The first witness lives at the adress that starts with "****" and ends with the number 144. 
+	The second witness, named *****, lives somewhere on "******".
 
+	- person	
+		- adress_number
+		- adress_street_name
+		- name
+
+	SELECT * FROM person WHERE adress_street_name LIKE "%*****%" AND address_number = 144;
+	SELECT * FROM person WHERE adress_street_name = "*****" AND name LIKE "%*****%";
+
+	// Get the id from the interview person and go to the table interview => person_id
+
+clue 3: - interview > transcript
+
+	person1 : I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. The membership number on the bag started with "48Z". Only gold members have those bags. The man got into a 		car with a plate that included "H42W".
+
+	- swimming_pool_member 
+		-swimming_badge 
+		-id
+
+	person2 : I saw the murder happen, and I recognized the killer from before when I was working last week on April 12th. The person has been here at the same time three times this week since Monday. 		The murder took place around 21.00.  
+	
+	- swimming_pool_check_in
+		-check_in_date
+		-check_in_time
+		-check_out_time
+
+	SELECT * FROM swimming_pool_member 
+	INNER JOIN swimming_pool_check_in
+	ON swimming_pool_member.id = swimming_pool_check_in.membership_id
+	WHERE check_in_date >= 20190420 AND <= 20190424 AND check_in_time > 2030 AND 2130 < check_out_time
+	GROUP BY person_id;
+	
+
+clue 4: 
