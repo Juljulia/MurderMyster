@@ -57,16 +57,16 @@ clue 2:
 	- crime_scene_report > description
 
 	Security footage shows that there were 2 witnesses. 
-	The first witness lives at the adress that starts with "****" and ends with the number 144. 
-	The second witness, named *****, lives somewhere on "******".
+	The first witness lives at the adress that starts with "Baddare" and ends with the number 144. // 280	"Mathew Folbigg"	144	"Baddaregatan"
+	The second witness, named "Gordon", lives somewhere on "Octopus Street". //160	"Gordon Freeman"	33	"Octopus Street"
 
 	- person	
 		- adress_number
 		- adress_street_name
 		- name
 
-	SELECT * FROM person WHERE adress_street_name LIKE "%*****%" AND address_number = 144;
-	SELECT * FROM person WHERE adress_street_name = "*****" AND name LIKE "%*****%";
+	SELECT * FROM person WHERE adress_street_name LIKE "Baddare%" AND address_number = 144;
+	SELECT * FROM person WHERE adress_street_name = "Octopus Street" AND name LIKE "%Gordon%";
 
 	// Get the id from the interview person and go to the table interview => person_id
 
@@ -79,7 +79,7 @@ clue 3: - interview > transcript
 		-id
 	
 
-	person2 : I saw the murder happen, and I recognized the killer from before when I was working last week on April 12th. The person has been here at the same time three times this week since Monday. 		The murder took place around 21.00.  
+	person2 / Gordon Freeman : I saw the murder happen, and I recognized the killer from before when I was working last week on April 12th. The person has been here at the same time three times this week since Monday. The murder took place around 21.00.  
 	
 	- swimming_pool_check_in
 		-check_in_date
