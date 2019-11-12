@@ -72,7 +72,7 @@ clue 2:
 
 clue 3: - interview > transcript
 
-	person1 : I heard loud splashes and then saw a man run out. He had a swimming suit covered in at least 10 swimming badges. I recognised one of the badges which was the 50-miles badge. 
+	person1 / Mathew Folbigg : I heard loud splashes and then saw a man run out. He had a swimming suit covered in at least 10 swimming badges. I recognised one of the badges which was the 50-miles badge. 
 
 	- swimming_pool_member 
 		-swimming_badge 
