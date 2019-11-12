@@ -1,0 +1,20 @@
+QUERIES:
+
+SELECT * FROM crime_scene_report WHERE type = "Murder" AND date = 20190424 AND city = "Waterloo City";
+
+SELECT * FROM person WHERE adress_street_name LIKE "Baddare%" AND adress_number = 144;
+
+SELECT * FROM person WHERE adress_street_name = "Octopus Street" AND name LIKE "%Gordon%";
+
+SELECT * FROM interview WHERE person_id = 160 OR person_id = 280;
+
+SELECT * FROM swimming_pool_member 
+	INNER JOIN swimming_pool_check_in
+	ON swimming_pool_member.id = swimming_pool_check_in.membership_id
+	WHERE check_in_date = 20190424 AND check_out_time > 2100 AND swimming_badge = '50miles'
+	GROUP BY person_id;
+
+
+
+
+
