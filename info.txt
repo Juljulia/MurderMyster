@@ -72,14 +72,14 @@ clue 2:
 
 clue 3: - interview > transcript
 
-	person1 : I heard loud splashes and then saw a man run out. He had a swimming suit covered in at least 10 swimming badges. I recognised one of the badges which was the 50-miles badge. 
+	person1 / Mathew Folbigg : I heard loud splashes and then saw a man run out. He had a swimming suit covered in at least 10 swimming badges. I recognised one of the badges which was the 50miles badge. 
 
 	- swimming_pool_member 
 		-swimming_badge 
 		-id
 	
 
-	person2 / Gordon Freeman : I saw the murder happen, and I recognised the killer from before when I was working last week on April 12th. The person has been here at the same time three times this week since Monday. The murder took place around 21.00.  
+	person2 / Gordon Freeman : I saw the murder happen and saw the killer run out from the building. The murder took place around 21.00.  
 	
 	- swimming_pool_check_in
 		-check_in_date
@@ -89,9 +89,20 @@ clue 3: - interview > transcript
 	SELECT * FROM swimming_pool_member 
 	INNER JOIN swimming_pool_check_in
 	ON swimming_pool_member.id = swimming_pool_check_in.membership_id
-	WHERE check_in_date >= 20190420 AND <= 20190424 AND check_in_time > 2030 AND 2130 < check_out_time
+	WHERE check_in_date = 20190424 AND check_in_time > 2030 AND 2130 < check_out_time
 	AND swimming_badge = '50miles'
 	GROUP BY person_id;
 
-alt. WHERE SUM(swimming_badge) > 10; 
+alt. WHERE SUM(swimming_badge) > 10;
 	
+
+
+50 miles badges:
+66	66	"Bernie Kearle"	"50miles"
+16	16	"Minta Robart"	"50miles"
+165	165	"Ingmar Stenmark"	"50miles" --> Murder
+
+
+
+
+
