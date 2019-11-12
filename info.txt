@@ -79,7 +79,7 @@ clue 3: - interview > transcript
 		-id
 	
 
-	person2 / Gordon Freeman : I saw the murder happen, and I recognized the killer from before when I was working last week on April 12th. The person has been here at the same time three times this week since Monday. The murder took place around 21.00.  
+	person2 / Gordon Freeman : I saw the murder happen, and I recognised the killer from before when I was working last week on April 12th. The person has been here at the same time three times this week since Monday. The murder took place around 21.00.  
 	
 	- swimming_pool_check_in
 		-check_in_date
